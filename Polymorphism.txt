@@ -1,0 +1,101 @@
+
+1) CompileTime and RunTime method Dispatchar.
+
+	Dispatching refers to choosing an implementation for the operation after 
+        we have decided which operation a name refers to. With dynamic dispatch, 
+        the name may be bound to a polymorphic operation at compile time, 
+	but the implementation not be chosen until runtime.
+
+  Method Overloading :
+       Method Overloading is an example for compiletime polymorphism which will be in a same inheritance heirarchy where we will be having same 
+       method name but with different method signature/defnition. 
+
+  The following example shows method overloading.
+ 
+  public class Calculator {
+	public static void add(int i,int j){
+		int c= (i+j);
+		System.out.println(c);
+	}
+	public static void add(int i,double j){
+		double c= (i+j);
+		System.out.println(c);
+	}
+	public static void add(int i,long j){
+		long c= (i+j);
+		System.out.println(c);
+	}
+	public static void main(String[] args) {
+
+		add(21, 20);  			 // respective methods will be dispatches depends on
+				                    the argument passing to method at compile time.
+		add(21, 20.0);
+		add(21, 20546242);
+
+	}
+}
+
+
+ RunTime polymorphism:
+
+	Method overriding is an example forod  RunTime polymorphism  in the different inheritance heirachy.
+	Here the method signature will be same but the implementation will be different depends on the object passed at the 
+	runtime. Dynamically method implementation will be dispatched with respect to the object passed at the runtime.
+	
+	The following example shows Dynamic Method Dispacther/ RunTime Polymorphism.
+  
+package nthDimenzion.ravi.overloading.overring;
+
+public interface NthDimenzion {
+	public void comrToOffice();
+	public void drink();
+}
+
+
+package nthDimenzion.ravi.overloading.overring;
+
+
+public class Person1 implements NthDimenzion {
+
+	@Override
+	public void comrToOffice() {
+System.out.println("comes to office by bus");		
+	}
+
+	@Override
+	public void drink() {
+System.out.println("Drinks only tea");		
+	}
+
+}
+	
+
+package nthDimenzion.ravi.overloading.overring;
+
+public class Person2 implements NthDimenzion{
+
+	@Override
+	public void comrToOffice() {
+		System.out.println("come to office by Bike");		
+	}
+
+	@Override
+	public void drink() {
+		System.out.println("Drinks only coffee");
+	}
+
+}
+
+
+package nthDimenzion.ravi.overloading.overring;
+
+public class Checker {
+public static void main(String[] args) {
+	NthDimenzion nth=null;
+	//nth=new Person1();	//Method implementation dispacthed depends on object passed to the reference
+	nth=new Person2();
+	nth.comrToOffice();
+	nth.drink();
+}
+}
+	
