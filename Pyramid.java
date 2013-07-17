@@ -1,17 +1,23 @@
-package nthDimenzion.ravi.immutable;
+package NthDimenzion.assignment.NumberTest;
 
 public class Pyramid {
 	public static void main(String[] args) {
-		int n=7;
-		int i,j=0;
-		for(i=0;i<=n;i++){
-			System.out.println();
-			for(j=1;j<=i;j++){
-				System.out.print(" "+i);
-			}
-		}
-		i--;
-		j++;
+		int x = 11;
+		int y = x / 2;
+		int z = 1; 
 
+		for (int i = 1; i <= 5; i++) {
+			for (int j = 0; j < y; j++) {
+				System.out.print(" ");
+			}
+			for (int k = 0; k < z; k++) {
+				System.out.print(i+"");
+			}
+
+			y = y - 1;
+			z = z + 2;
+			System.out.println(); //new line
+		}
 	}
+
 }
