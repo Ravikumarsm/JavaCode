@@ -89,14 +89,14 @@ Hash Collision :
 
       - Collision refers to the internal working of the HashMap, where two keys have the same hash value, 
         
-        There are two types of collisions:
+      There are two types of collisions:
 
          1. Two objects have the same hash code, and the HashMap needs to check the equals() method to see if they are the same.
 
          2. Two objects have different hash code, but end up in the same bucket.In this case, the HashMap just needs to check the actual hashCode() 
             of each object (which was saved when the object was put in the Map) to see if they are the same.
 
-                               The first type of collision is determined only by hash code. But the second  is affected by the capacity, 
+                                        The first type of collision is determined only by hash code. But the second  is affected by the capacity, 
          which is affected by the load factor.In general, setting a lower load factor will decrease collsions (of the second type, which is much more common)
          at the cost of using more memory.
  
