@@ -1,4 +1,4 @@
-package com.ibm.application.module.MapPkg;
+package com.application.module.MapPkg;
 
 public class Employee {
 public String empId;

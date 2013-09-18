@@ -1,4 +1,4 @@
-package com.ibm.application.module.MapPkg;
+package com.application.module.MapPkg;
 
 import java.util.HashMap;
 import java.util.Iterator;
