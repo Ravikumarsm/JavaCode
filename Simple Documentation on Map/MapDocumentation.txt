@@ -1,0 +1,107 @@
+Map :
+     - An object that maps keys to values.
+     - Map contains only unique elements i.e, a map cannot contain duplicate keys; each key can map to at most one value.
+     - The Map interface provides three collection views, which allow a map's contents to be viewed as a 
+             1. set of keys, 
+             2. collection of values, or 
+             3. set of key-value mappings. 
+     - The order of a map is defined as the order in which the iterators on the map's collection views return their elements. 
+     - Some map implementations, like the TreeMap class, make specific guarantees as to their order; others, like the HashMap class, do not guarantee the order.
+ 
+
+   Entry :
+        - Entry is the subinterface of Map.
+        - We can access it by Map.Entry
+        - It provides methods to get key and value.
+
+
+        Methods of Entry Interface : 
+                                    - public Object getKey()   : 
+                                                              - Used to get key, If the mapping has been removed
+                                                                from the backing map (by the iterator's remove operation), the results of this call are undefined...
+
+                                    - public Object getValue() : 
+                                                              - Used to get value. If the mapping has been removed from the 
+                                                                backing map (by the iterator's remove operation), the results of this call are undefined...
+
+Methods of Map Iterface :
+
+        - public Object put(Object key, Object value) : 
+                                     - is used to insert an Entry in Map.When we pass both key and value to put() method,it uses key object hashcode() method to calculate hashcode
+                                       and there by applying hashing on that hashcode it identifies bucket location for storing value object. 
+
+        - public void putAll(Map map) : 
+                                     - is used to insert a specified map in this Map.
+ 
+        - public Object remove(Object Key) :
+                                     -  is used to delete an entry for a specific key.
+
+        - public Object get(Object key) : 
+                                     - is used to return the value for a given key.While retrieving it uses key object equals method to 
+                                       find out correct key value pair and return value object associated with that key.
+
+        - public boolean containsKey(Object key) : 
+                                     - This is used to search for the specific key in the Map. 
+                                       Returns true if and only if this map contains a mapping for a given key..
+
+        - public boolean containsValue(Object vlaue)  :
+                                     -  This is used to search for the specific value in the Map. It returns true if the specified value is present.
+                                        Returns true if and only if this map contains at least one mapping to a value.
+
+        - public Set keySet() : 
+                                     - it will return the Set which contains all the keys.The set is backed by the map, 
+                                       so changes to the map are reflected in the set, and vice-versa.
+
+        - public Set<Map.Entry<K,V>> entrySet() :
+                                     -  it will return the Set which contains all the keys and values.
+
+                   
+
+
+HashMap : 
+
+        - Hash Map contains values based on the key.
+        - It contains unique elements.
+        - Hash Map can have null key and multiple null values.
+        - It does not maintain the order.
+
+        Working of put and get method:
+
+                      - HashMap works on principle of hashing, we have put() and get method for storing and retrieving an object from HashMap. 
+                      - When we pass both key and value to put() method to store on HashMap , it uses key object hashcode() method to calculate hashcode
+                        and there by applying hashing on that hashcode it identifies bucket location for storing value object. 
+                      - While retrieving it uses key object equals method to find out correct key value pair and return value object associated with that key.
+                      - HashMap uses linked list in case of collision and object will be stored in next node of linked list. Also HashMap stores both key and value pair
+                        in every node of linked list.
+
+
+Hash Code : 
+          
+        - Hashcode is used for bucketing in Hash implementations like HashMap, HashTable, HashSet etc.
+        - The value received from hashcode() is used as bucket number for storing elements of the set/map. 
+        - The bucket number is the address of the element inside the set/map. when we do contains() then it will take the hashcode of the element,
+          then look for the bucket where hashcode points to.
+        - If more than one element is found in the same bucket (multiple objects can have the same hashcode) then it uses the equals() method to evaluate 
+          if object are equal, and then decide if contain() is true or false, or decide if element could be added in the set or not.
+
+
+Hash Collision :
+
+      - Collision refers to the internal working of the HashMap, where two keys have the same hash value, 
+        
+        There are two types of collisions:
+
+         1. Two objects have the same hash code, and the HashMap needs to check the equals() method to see if they are the same.
+
+         2. Two objects have different hash code, but end up in the same bucket.In this case, the HashMap just needs to check the actual hashCode() 
+            of each object (which was saved when the object was put in the Map) to see if they are the same.
+
+                               The first type of collision is determined only by hash code. But the second  is affected by the capacity, 
+         which is affected by the load factor.In general, setting a lower load factor will decrease collsions (of the second type, which is much more common)
+         at the cost of using more memory.
+ 
+
+Reference : 
+       - http://docs.oracle.com
+
+          
